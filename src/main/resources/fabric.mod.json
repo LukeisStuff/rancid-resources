@@ -1,38 +1,38 @@
 {
-  "schemaVersion": 1,
-  "id": "examplemod",
-  "version": "${version}",
+	"schemaVersion": 1,
+	"id": "rancidresources",
+	"version": "1.0.0",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
-  "authors": [
-    "Turnip Labs"
-  ],
-  "contact": {
-    "homepage": "",
-    "sources": ""
-  },
-
+	"name": "Rancid Resources",
+	"description": "The most vile mod imaginable for BTA!",
+	"authors": [
+		"LukeisStuff"
+	],
 	"icon": "icon.png",
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+
   "license": "CC0-1.0",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.examplemod.ExampleMod"
+			"luke.rancidresources.RancidResources"
     ],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"luke.rancidresources.RancidResources"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"luke.rancidresources.RancidResources"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"luke.rancidresources.RancidResources"
 		]
 	},
   "mixins": [
-      "examplemod.mixins.json"
+      "rancidresources.mixins.json"
   ],
 
   "depends": {
