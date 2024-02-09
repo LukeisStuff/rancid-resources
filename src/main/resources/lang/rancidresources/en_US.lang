@@ -12,7 +12,12 @@ tile.rancidresources.mold.name=Mold
 tile.rancidresources.mold.desc=A moldy substance of pure rot.
 
 
-
+item.rancidresources.shitpiece.name=Piece of Shit
+item.rancidresources.shitpiece.desc=A stinking piece of rectal waste
+item.rancidresources.cumwad.name=Wad of Cum
+item.rancidresources.cumwad.desc=A gooey wad of semen.
+item.rancidresources.blooddrop.name=Drop of Blood
+item.rancidresources.blooddrop.desc=Drop of liquid body fluid.
 
 
 

@@ -24,8 +24,8 @@
 		"beforeGameStart": [
 			"luke.rancidresources.RancidResources"
 		],
-		"afterGameStart": [
-			"luke.rancidresources.RancidResources"
+		"beforeClientStart": [
+			"luke.rancidresources.RancidClient"
 		],
 		"recipesReady": [
 			"luke.rancidresources.RancidResources"
