@@ -14,7 +14,7 @@ public class RancidItems {
 
 	public static final Item cum = ItemHelper.createItem(MOD_ID, new ItemFood("cumwad", itemID++, -1, false), "CumItem.png").setMaxStackSize(64);
 
-	public static final Item blood = ItemHelper.createItem(MOD_ID, new Item("blooddrop", itemID++), "Blood.png");
+	public static final Item blood = ItemHelper.createItem(MOD_ID, new ItemBlood("blooddrop", itemID++), "Blood.png");
 
 
 	public void initializeItems() {

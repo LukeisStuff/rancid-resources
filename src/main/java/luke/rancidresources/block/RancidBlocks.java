@@ -13,7 +13,7 @@ public class RancidBlocks {
 	private static int blockID = 2003;
 
 	public static final Block shit = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("rancidresources.poop1.ogg", "rancidresources.poop2.ogg", 1.0f, 0.5f))
+		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.5f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("Shit.png")
@@ -29,7 +29,7 @@ public class RancidBlocks {
 		.build(new Block("cum", blockID++, Material.dirt));
 
 	public static final Block pork = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 1.0f))
+		.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("Pork.png")
@@ -39,7 +39,7 @@ public class RancidBlocks {
 		.build(new BlockPork("pork", blockID++, Material.dirt));
 
 	public static final Block rotting = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.9f))
+		.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 0.9f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("RottingPork.png")
@@ -47,7 +47,7 @@ public class RancidBlocks {
 		.build(new BlockPorkRot("rot", blockID++, Material.dirt));
 
 	public static final Block moldy = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.8f))
+		.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 0.8f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("MoldyPork.png")
@@ -55,7 +55,7 @@ public class RancidBlocks {
 		.build(new BlockPorkMold("molding", blockID++, Material.dirt));
 
 	public static final Block mold = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.7f))
+		.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 0.7f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("Mold.png")

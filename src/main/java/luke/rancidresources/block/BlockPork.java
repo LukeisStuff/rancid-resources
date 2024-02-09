@@ -15,7 +15,7 @@ public class BlockPork extends Block {
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		super.updateTick(world, x, y, z, rand);
-		if (world.getBlockMetadata(x, y, z) != 1) {
+		if (world.getBlockMetadata(x, y, z) == 0) {
 			++this.ticks;
 			if (this.ticks == 20) {
 				world.setBlockAndMetadataWithNotify(x, y, z, RancidBlocks.rotting.id, 0);

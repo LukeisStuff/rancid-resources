@@ -7,6 +7,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.fx.EntitySlimeFX;
 import net.minecraft.client.render.entity.SnowballRenderer;
+import net.minecraft.core.HitResult;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
@@ -69,4 +70,85 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 		template2x2.addInput('X', Item.foodPorkchopRaw).create("pork_block", new ItemStack(RancidBlocks.pork, 1));
 
 	}
+
+	public boolean runTick(Minecraft mc) {
+
+		if(mc.thePlayer.health == 4)
+		{
+			int random = new Random().nextInt(200);
+			if(random == 0) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
+			}
+
+		}
+
+		if(mc.thePlayer.health == 3)
+		{
+			int random = new Random().nextInt(150);
+			if(random == 0) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
+			}
+		}
+
+		if(mc.thePlayer.health == 2)
+		{
+			int random = new Random().nextInt(100);
+			if(random == 0) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
+			}
+		}
+
+		if(mc.thePlayer.health == 1)
+		{
+			int random = new Random().nextInt(50);
+			if(random == 0) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
+			}
+		}
+
+		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && mc.thePlayer.isSneaking() && !playerSneaked)
+		{
+			int random = new Random().nextInt(30);
+			if(random == 0) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.shit, 1));
+			}
+			if(random == 1) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.shit, 2));
+			}
+			if(random == 2) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.shit, 3));
+			}
+			if(random == 3) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidBlocks.shit, 1));
+			}
+			playerSneaked = true;
+		}
+		if(mc.thePlayer.isSneaking() == false) {
+			playerSneaked = false;
+		}
+
+		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() == true && mc.thePlayer.health == 20 && !playerSwinged && mc.thePlayer.getCurrentEquippedItem() == null && mc.objectMouseOver != null && mc.objectMouseOver.hitType == HitResult.HitType.ENTITY && mc.objectMouseOver.x == (int)Math.floor(mc.thePlayer.x) && mc.objectMouseOver.y == (int)Math.floor(mc.thePlayer.y) - 2 && mc.objectMouseOver.z == (int)Math.floor(mc.thePlayer.z))
+		{
+			int random = new Random().nextInt(10);
+			if(random == 0) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.cum, 1));
+			}
+			if(random == 1) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.cum, 2));
+			}
+			if(random == 2) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.cum, 3));
+			}
+			if(random == 3) {
+				mc.thePlayer.dropPlayerItem(new ItemStack(RancidBlocks.cum, 1));
+			}
+
+			playerSwinged = true;
+		}
+		if(Mouse.getEventButton() == 0 && Mouse.getEventButtonState() == false) {
+			playerSwinged = false;
+		}
+		return true;
+	}
+
 }
