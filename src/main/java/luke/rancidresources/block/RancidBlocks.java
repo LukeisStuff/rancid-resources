@@ -1,9 +1,9 @@
 package luke.rancidresources.block;
 
-import net.minecraft.client.sound.block.BlockSound;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.sound.BlockSound;
 import turniplabs.halplibe.helper.BlockBuilder;
 
 import static luke.rancidresources.RancidResources.MOD_ID;
@@ -11,7 +11,7 @@ import static luke.rancidresources.RancidResources.MOD_ID;
 public class RancidBlocks {
 
 	private static int blockID = 2003;
-	
+
 
 	public static final Block shit = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.5f))

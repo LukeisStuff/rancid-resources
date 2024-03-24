@@ -5,19 +5,15 @@ import luke.rancidresources.entity.EntityShit;
 import luke.rancidresources.item.RancidItems;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.fx.EntitySlimeFX;
 import net.minecraft.client.render.entity.SnowballRenderer;
 import net.minecraft.core.HitResult;
-import net.minecraft.core.block.Block;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
-import net.minecraft.core.world.World;
 import org.lwjgl.input.Mouse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.helper.EntityHelper;
 import turniplabs.halplibe.helper.ParticleHelper;
-import turniplabs.halplibe.helper.RecipeBuilder;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderShaped;
 import turniplabs.halplibe.util.ConfigHandler;
 import turniplabs.halplibe.util.GameStartEntrypoint;
@@ -73,7 +69,7 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 
 	public boolean runTick(Minecraft mc) {
 
-		if(mc.thePlayer.health == 4)
+		if(mc.thePlayer.getHealth() == 4)
 		{
 			int random = new Random().nextInt(200);
 			if(random == 0) {
@@ -82,7 +78,7 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 
 		}
 
-		if(mc.thePlayer.health == 3)
+		if(mc.thePlayer.getHealth() == 3)
 		{
 			int random = new Random().nextInt(150);
 			if(random == 0) {
@@ -90,7 +86,7 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 			}
 		}
 
-		if(mc.thePlayer.health == 2)
+		if(mc.thePlayer.getHealth() == 2)
 		{
 			int random = new Random().nextInt(100);
 			if(random == 0) {
@@ -98,7 +94,7 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 			}
 		}
 
-		if(mc.thePlayer.health == 1)
+		if(mc.thePlayer.getHealth() == 1)
 		{
 			int random = new Random().nextInt(50);
 			if(random == 0) {
@@ -127,7 +123,7 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 			playerSneaked = false;
 		}
 
-		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && mc.thePlayer.health == 20 && !playerSwinged && mc.thePlayer.getCurrentEquippedItem() == null && mc.objectMouseOver != null && mc.objectMouseOver.hitType == HitResult.HitType.ENTITY && mc.objectMouseOver.x == (int)Math.floor(mc.thePlayer.x) && mc.objectMouseOver.y == (int)Math.floor(mc.thePlayer.y) - 2 && mc.objectMouseOver.z == (int)Math.floor(mc.thePlayer.z))
+		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && mc.thePlayer.getHealth() == 20 && !playerSwinged && mc.thePlayer.getCurrentEquippedItem() == null && mc.objectMouseOver != null && mc.objectMouseOver.hitType == HitResult.HitType.ENTITY && mc.objectMouseOver.x == (int)Math.floor(mc.thePlayer.x) && mc.objectMouseOver.y == (int)Math.floor(mc.thePlayer.y) - 2 && mc.objectMouseOver.z == (int)Math.floor(mc.thePlayer.z))
 		{
 			int random = new Random().nextInt(10);
 			if(random == 0) {
