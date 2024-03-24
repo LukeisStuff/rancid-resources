@@ -11,6 +11,7 @@ import static luke.rancidresources.RancidResources.MOD_ID;
 public class RancidBlocks {
 
 	private static int blockID = 2003;
+	
 
 	public static final Block shit = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.5f))

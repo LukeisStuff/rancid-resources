@@ -123,11 +123,11 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 			}
 			playerSneaked = true;
 		}
-		if(mc.thePlayer.isSneaking() == false) {
+		if(!mc.thePlayer.isSneaking()) {
 			playerSneaked = false;
 		}
 
-		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() == true && mc.thePlayer.health == 20 && !playerSwinged && mc.thePlayer.getCurrentEquippedItem() == null && mc.objectMouseOver != null && mc.objectMouseOver.hitType == HitResult.HitType.ENTITY && mc.objectMouseOver.x == (int)Math.floor(mc.thePlayer.x) && mc.objectMouseOver.y == (int)Math.floor(mc.thePlayer.y) - 2 && mc.objectMouseOver.z == (int)Math.floor(mc.thePlayer.z))
+		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && mc.thePlayer.health == 20 && !playerSwinged && mc.thePlayer.getCurrentEquippedItem() == null && mc.objectMouseOver != null && mc.objectMouseOver.hitType == HitResult.HitType.ENTITY && mc.objectMouseOver.x == (int)Math.floor(mc.thePlayer.x) && mc.objectMouseOver.y == (int)Math.floor(mc.thePlayer.y) - 2 && mc.objectMouseOver.z == (int)Math.floor(mc.thePlayer.z))
 		{
 			int random = new Random().nextInt(10);
 			if(random == 0) {
@@ -145,7 +145,7 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 
 			playerSwinged = true;
 		}
-		if(Mouse.getEventButton() == 0 && Mouse.getEventButtonState() == false) {
+		if(Mouse.getEventButton() == 0 && !Mouse.getEventButtonState()) {
 			playerSwinged = false;
 		}
 		return true;
