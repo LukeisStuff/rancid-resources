@@ -18,7 +18,6 @@ public class ItemShit extends Item {
 		if (!world.isClientSide) {
 			world.entityJoinedWorld(new EntityShit(world, entityplayer));
 		}
-
 		return itemstack;
 	}
 }

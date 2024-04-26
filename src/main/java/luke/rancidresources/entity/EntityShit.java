@@ -1,12 +1,9 @@
 package luke.rancidresources.entity;
 
 import com.mojang.nbt.CompoundTag;
-import luke.rancidresources.item.RancidItems;
 import net.minecraft.core.HitResult;
 import net.minecraft.core.entity.Entity;
-import net.minecraft.core.entity.EntityItem;
 import net.minecraft.core.entity.EntityLiving;
-import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.util.phys.AABB;
@@ -116,9 +113,9 @@ public class EntityShit extends Entity {
 	}
 
 	public void tick() {
-		this.xOld = this.x;
-		this.yOld = this.y;
-		this.zOld = this.z;
+		this.xo = this.x;
+		this.yo = this.y;
+		this.zo = this.z;
 		super.tick();
 		if (this.shakeShit > 0) {
 			--this.shakeShit;

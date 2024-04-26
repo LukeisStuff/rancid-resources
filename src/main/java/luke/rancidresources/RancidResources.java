@@ -67,6 +67,11 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 
 	}
 
+	@Override
+	public void initNamespaces() {
+
+	}
+
 	public boolean runTick(Minecraft mc) {
 
 		if(mc.thePlayer.getHealth() == 4)
@@ -75,7 +80,6 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 			if(random == 0) {
 				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
 			}
-
 		}
 
 		if(mc.thePlayer.getHealth() == 3)
@@ -138,7 +142,6 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 			if(random == 3) {
 				mc.thePlayer.dropPlayerItem(new ItemStack(RancidBlocks.cum, 1));
 			}
-
 			playerSwinged = true;
 		}
 		if(Mouse.getEventButton() == 0 && !Mouse.getEventButtonState()) {
