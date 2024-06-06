@@ -1,6 +1,8 @@
 package luke.rancidresources.entity;
 
 import com.mojang.nbt.CompoundTag;
+import luke.rancidresources.EntityShitFX;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.HitResult;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.EntityLiving;
@@ -43,15 +45,15 @@ public class EntityShit extends Entity {
 		this.thrower = entityliving;
 		this.setSize(0.25F, 0.25F);
 		this.moveTo(entityliving.x, entityliving.y + (double)entityliving.getHeadHeight(), entityliving.z, entityliving.yRot, entityliving.xRot);
-		this.x -= (double)(MathHelper.cos(this.yRot / 180.0F * 3.141593F) * 0.16F);
+		this.x -= MathHelper.cos(this.yRot / 180.0F * 3.141593F) * 0.16F;
 		this.y -= 0.10000000149011612;
-		this.z -= (double)(MathHelper.sin(this.yRot / 180.0F * 3.141593F) * 0.16F);
+		this.z -= MathHelper.sin(this.yRot / 180.0F * 3.141593F) * 0.16F;
 		this.setPos(this.x, this.y, this.z);
 		this.heightOffset = 0.0F;
 		float f = 0.4F;
-		this.xd = (double)(-MathHelper.sin(this.yRot / 180.0F * 3.141593F) * MathHelper.cos(this.xRot / 180.0F * 3.141593F) * f);
-		this.zd = (double)(MathHelper.cos(this.yRot / 180.0F * 3.141593F) * MathHelper.cos(this.xRot / 180.0F * 3.141593F) * f);
-		this.yd = (double)(-MathHelper.sin(this.xRot / 180.0F * 3.141593F) * f);
+		this.xd = -MathHelper.sin(this.yRot / 180.0F * 3.141593F) * MathHelper.cos(this.xRot / 180.0F * 3.141593F) * f;
+		this.zd = MathHelper.cos(this.yRot / 180.0F * 3.141593F) * MathHelper.cos(this.xRot / 180.0F * 3.141593F) * f;
+		this.yd = -MathHelper.sin(this.xRot / 180.0F * 3.141593F) * f;
 		this.setShitHeading(this.xd, this.yd, this.zd, 1.5F, 1.0F);
 	}
 
@@ -65,38 +67,38 @@ public class EntityShit extends Entity {
 
 	public void setShitHeading(double d, double d1, double d2, float f, float f1) {
 		float f2 = MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
-		d /= (double)f2;
-		d1 /= (double)f2;
-		d2 /= (double)f2;
+		d /= f2;
+		d1 /= f2;
+		d2 /= f2;
 		d += this.random.nextGaussian() * 0.007499999832361937 * (double)f1;
 		d1 += this.random.nextGaussian() * 0.007499999832361937 * (double)f1;
 		d2 += this.random.nextGaussian() * 0.007499999832361937 * (double)f1;
-		d *= (double)f;
-		d1 *= (double)f;
-		d2 *= (double)f;
+		d *= f;
+		d1 *= f;
+		d2 *= f;
 		this.xd = d;
 		this.yd = d1;
 		this.zd = d2;
 		float f3 = MathHelper.sqrt_double(d * d + d2 * d2);
 		this.yRotO = this.yRot = (float)(Math.atan2(d, d2) * 180.0 / 3.1415927410125732);
-		this.xRotO = this.xRot = (float)(Math.atan2(d1, (double)f3) * 180.0 / 3.1415927410125732);
+		this.xRotO = this.xRot = (float)(Math.atan2(d1, f3) * 180.0 / 3.1415927410125732);
 		this.ticksInGroundShit = 0;
 	}
 
 	public void setShitHeadingPrecise(double d, double d1, double d2, float f, float f1) {
 		float f2 = MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
-		d /= (double)f2;
-		d1 /= (double)f2;
-		d2 /= (double)f2;
-		d *= (double)f;
-		d1 *= (double)f;
-		d2 *= (double)f;
+		d /= f2;
+		d1 /= f2;
+		d2 /= f2;
+		d *= f;
+		d1 *= f;
+		d2 *= f;
 		this.xd = d;
 		this.yd = d1;
 		this.zd = d2;
 		float f3 = MathHelper.sqrt_double(d * d + d2 * d2);
 		this.yRotO = this.yRot = (float)(Math.atan2(d, d2) * 180.0 / 3.1415927410125732);
-		this.xRotO = this.xRot = (float)(Math.atan2(d1, (double)f3) * 180.0 / 3.1415927410125732);
+		this.xRotO = this.xRot = (float)(Math.atan2(d1, f3) * 180.0 / 3.1415927410125732);
 		this.ticksInGroundShit = 0;
 	}
 
@@ -107,12 +109,13 @@ public class EntityShit extends Entity {
 		if (this.xRotO == 0.0F && this.yRotO == 0.0F) {
 			float f = MathHelper.sqrt_double(xd * xd + zd * zd);
 			this.yRotO = this.yRot = (float)(Math.atan2(xd, zd) * 180.0 / 3.1415927410125732);
-			this.xRotO = this.xRot = (float)(Math.atan2(yd, (double)f) * 180.0 / 3.1415927410125732);
+			this.xRotO = this.xRot = (float)(Math.atan2(yd, f) * 180.0 / 3.1415927410125732);
 		}
 
 	}
 
 	public void tick() {
+		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
 		this.xo = this.x;
 		this.yo = this.y;
 		this.zo = this.z;
@@ -133,9 +136,9 @@ public class EntityShit extends Entity {
 			}
 
 			this.inGroundShit = false;
-			this.xd *= (double)(this.random.nextFloat() * 0.2F);
-			this.yd *= (double)(this.random.nextFloat() * 0.2F);
-			this.zd *= (double)(this.random.nextFloat() * 0.2F);
+			this.xd *= this.random.nextFloat() * 0.2F;
+			this.yd *= this.random.nextFloat() * 0.2F;
+			this.zd *= this.random.nextFloat() * 0.2F;
 			this.ticksInGroundShit = 0;
 			this.ticksInAirShit = 0;
 		} else {
@@ -153,24 +156,23 @@ public class EntityShit extends Entity {
 
 		if (!this.world.isClientSide) {
 			Entity entity = null;
-			List list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.bb.addCoord(this.xd, this.yd, this.zd).expand(1.0, 1.0, 1.0));
+			List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.bb.addCoord(this.xd, this.yd, this.zd).expand(1.0, 1.0, 1.0));
 			double d = 0.0;
 
-			for(int l = 0; l < list.size(); ++l) {
-				Entity entity1 = (Entity)list.get(l);
-				if (entity1.isPickable() && (entity1 != this.thrower || this.ticksInAirShit >= 5)) {
-					float f4 = 0.3F;
-					AABB axisalignedbb = entity1.bb.expand((double)f4, (double)f4, (double)f4);
-					HitResult movingobjectposition1 = axisalignedbb.func_1169_a(vec3d, vec3d1);
-					if (movingobjectposition1 != null) {
-						double d1 = vec3d.distanceTo(movingobjectposition1.location);
-						if (d1 < d || d == 0.0) {
-							entity = entity1;
-							d = d1;
-						}
-					}
-				}
-			}
+            for (Entity value : list) {
+                if (value.isPickable() && (value != this.thrower || this.ticksInAirShit >= 5)) {
+                    float f4 = 0.3F;
+                    AABB axisalignedbb = value.bb.expand(f4, f4, f4);
+                    HitResult movingobjectposition1 = axisalignedbb.func_1169_a(vec3d, vec3d1);
+                    if (movingobjectposition1 != null) {
+                        double d1 = vec3d.distanceTo(movingobjectposition1.location);
+                        if (d1 < d || d == 0.0) {
+                            entity = value;
+                            d = d1;
+                        }
+                    }
+                }
+            }
 
 			if (entity != null) {
 				movingobjectposition = new HitResult(entity);
@@ -178,11 +180,12 @@ public class EntityShit extends Entity {
 		}
 
 		if (movingobjectposition != null) {
-			if (movingobjectposition.entity != null && !movingobjectposition.entity.hurt(this.thrower, this.damage, DamageType.COMBAT)) {
-			}
+            if (movingobjectposition.entity != null) {
+                movingobjectposition.entity.hurt(this.thrower, this.damage, DamageType.COMBAT);
+            }
 
-			for(int j = 0; j < 8; ++j) {
-				this.world.spawnParticle("boatbreak", this.x, this.y, this.z, 0.0, 0.0, 0.0);
+            for(int j = 0; j < 8; ++j) {
+				mc.effectRenderer.addEffect(new EntityShitFX(world, this.x, this.y, this.z, 0.0, 0.0, 0.0));
 			}
 
 			this.remove();
@@ -194,7 +197,7 @@ public class EntityShit extends Entity {
 		float f = MathHelper.sqrt_double(this.xd * this.xd + this.zd * this.zd);
 		this.yRot = (float)(Math.atan2(this.xd, this.zd) * 180.0 / 3.1415927410125732);
 
-		for(this.xRot = (float)(Math.atan2(this.yd, (double)f) * 180.0 / 3.1415927410125732); this.xRot - this.xRotO < -180.0F; this.xRotO -= 360.0F) {
+		for(this.xRot = (float)(Math.atan2(this.yd, f) * 180.0 / 3.1415927410125732); this.xRot - this.xRotO < -180.0F; this.xRotO -= 360.0F) {
 		}
 
 		while(this.xRot - this.xRotO >= 180.0F) {
@@ -222,10 +225,10 @@ public class EntityShit extends Entity {
 			f1 = 0.8F;
 		}
 
-		this.xd *= (double)f1;
-		this.yd *= (double)f1;
-		this.zd *= (double)f1;
-		this.yd -= (double)f2;
+		this.xd *= f1;
+		this.yd *= f1;
+		this.zd *= f1;
+		this.yd -= f2;
 		this.setPos(this.x, this.y, this.z);
 	}
 
