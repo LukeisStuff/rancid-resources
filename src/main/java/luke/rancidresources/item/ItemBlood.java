@@ -13,12 +13,21 @@ public class ItemBlood extends Item {
 	}
 
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
-		if (world.getBlockId(blockX, blockY - 1, blockZ) == RancidBlocks.pork.id) {
+		if (world.getBlockId(blockX, blockY, blockZ) == RancidBlocks.pork.id) {
 			world.setBlockMetadataWithNotify(blockX, blockY, blockZ, 1);
+			entityplayer.swingItem();
 			itemstack.consumeItem(entityplayer);
-			return true;
-		} else {
-			return false;
 		}
-	}
+		if (world.getBlockId(blockX, blockY, blockZ) == RancidBlocks.rotting.id) {
+			world.setBlockMetadataWithNotify(blockX, blockY, blockZ, 1);
+			entityplayer.swingItem();
+			itemstack.consumeItem(entityplayer);
+		}
+		if (world.getBlockId(blockX, blockY, blockZ) == RancidBlocks.moldy.id) {
+			world.setBlockMetadataWithNotify(blockX, blockY, blockZ, 1);
+			entityplayer.swingItem();
+			itemstack.consumeItem(entityplayer);
+		}
+        return false;
+    }
 }
