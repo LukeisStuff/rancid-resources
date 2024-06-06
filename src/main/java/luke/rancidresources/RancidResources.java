@@ -4,12 +4,9 @@ import luke.rancidresources.block.RancidBlocks;
 import luke.rancidresources.entity.EntityShit;
 import luke.rancidresources.item.RancidItems;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.entity.SnowballRenderer;
-import net.minecraft.core.HitResult;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
-import org.lwjgl.input.Mouse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.helper.EntityHelper;
@@ -20,24 +17,18 @@ import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 import java.util.Properties;
-import java.util.Random;
 
 
 public class RancidResources implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
-	private boolean playerSneaked = false;
-	private boolean playerSwinged = false;
 	public static final String MOD_ID = "rancidresources";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static ConfigHandler config;
-	private static int blockID;
-	private static int itemID;
+
 	static {
 		Properties properties = new Properties();
 		properties.put("blockID", "2200");
 		properties.put("itemID", "17750");
 		config = new ConfigHandler(MOD_ID, properties);
-		blockID = config.getInt("blockID");
-		itemID = config.getInt("itemID");
 	}
     @Override
     public void onInitialize() {
@@ -70,84 +61,6 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 	@Override
 	public void initNamespaces() {
 
-	}
-
-	public boolean runTick(Minecraft mc) {
-
-		if(mc.thePlayer.getHealth() == 4)
-		{
-			int random = new Random().nextInt(200);
-			if(random == 0) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
-			}
-		}
-
-		if(mc.thePlayer.getHealth() == 3)
-		{
-			int random = new Random().nextInt(150);
-			if(random == 0) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
-			}
-		}
-
-		if(mc.thePlayer.getHealth() == 2)
-		{
-			int random = new Random().nextInt(100);
-			if(random == 0) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
-			}
-		}
-
-		if(mc.thePlayer.getHealth() == 1)
-		{
-			int random = new Random().nextInt(50);
-			if(random == 0) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.blood, 1));
-			}
-		}
-
-		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && mc.thePlayer.isSneaking() && !playerSneaked)
-		{
-			int random = new Random().nextInt(30);
-			if(random == 0) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.shit, 1));
-			}
-			if(random == 1) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.shit, 2));
-			}
-			if(random == 2) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.shit, 3));
-			}
-			if(random == 3) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidBlocks.shit, 1));
-			}
-			playerSneaked = true;
-		}
-		if(!mc.thePlayer.isSneaking()) {
-			playerSneaked = false;
-		}
-
-		if(mc.thePlayer.getPlayerProtectionAmount() == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && mc.thePlayer.getHealth() == 20 && !playerSwinged && mc.thePlayer.getCurrentEquippedItem() == null && mc.objectMouseOver != null && mc.objectMouseOver.hitType == HitResult.HitType.ENTITY && mc.objectMouseOver.x == (int)Math.floor(mc.thePlayer.x) && mc.objectMouseOver.y == (int)Math.floor(mc.thePlayer.y) - 2 && mc.objectMouseOver.z == (int)Math.floor(mc.thePlayer.z))
-		{
-			int random = new Random().nextInt(10);
-			if(random == 0) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.cum, 1));
-			}
-			if(random == 1) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.cum, 2));
-			}
-			if(random == 2) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidItems.cum, 3));
-			}
-			if(random == 3) {
-				mc.thePlayer.dropPlayerItem(new ItemStack(RancidBlocks.cum, 1));
-			}
-			playerSwinged = true;
-		}
-		if(Mouse.getEventButton() == 0 && !Mouse.getEventButtonState()) {
-			playerSwinged = false;
-		}
-		return true;
 	}
 
 }
