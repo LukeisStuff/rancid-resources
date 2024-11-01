@@ -19,16 +19,16 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"luke.rancidresources.RancidResources"
+			"luke.rancidresources.RancidResourcesMod"
     ],
 		"beforeGameStart": [
-			"luke.rancidresources.RancidResources"
+			"luke.rancidresources.RancidResourcesMod"
 		],
 		"beforeClientStart": [
-			"luke.rancidresources.RancidClient"
+			"luke.rancidresources.RancidResourcesMod"
 		],
 		"recipesReady": [
-			"luke.rancidresources.RancidResources"
+			"luke.rancidresources.RancidResourcesMod"
 		]
 	},
   "mixins": [
@@ -36,7 +36,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.13.3"
+		"fabricloader": ">=0.15.5"
   },
   "suggests": {
   }

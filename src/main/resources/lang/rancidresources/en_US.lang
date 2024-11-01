@@ -2,22 +2,22 @@ tile.rancidresources.shit.name=Shitty Block
 tile.rancidresources.shit.desc=A lumpy pile of human feces.
 tile.rancidresources.cum.name=Block o' Cum
 tile.rancidresources.cum.desc=An oozing collection of sperm.
-tile.rancidresources.pork.name=Pork
-tile.rancidresources.pork.desc=A solidified piece of a pig.
-tile.rancidresources.rot.name=Rotting Pork
-tile.rancidresources.rot.desc=A piece of a pig going bad.
-tile.rancidresources.molding.name=Moldy Pork
-tile.rancidresources.molding.desc=A piece of a pig gone foul.
-tile.rancidresources.mold.name=Mold
-tile.rancidresources.mold.desc=A moldy substance of pure rot.
+tile.rancidresources.pork.pork.name=Pork
+tile.rancidresources.pork.pork.desc=A solidified piece of a pig.
+tile.rancidresources.pork.rotting.name=Rotting Pork
+tile.rancidresources.pork.rotting.desc=A piece of a pig going bad.
+tile.rancidresources.pork.moldy.name=Moldy Pork
+tile.rancidresources.pork.moldy.desc=A piece of a pig gone foul.
+tile.rancidresources.pork.mold.name=Mold
+tile.rancidresources.pork.mold.desc=A moldy substance of pure rot.
 
 
-item.rancidresources.shitpiece.name=Piece of Shit
-item.rancidresources.shitpiece.desc=A stinking piece of rectal waste
-item.rancidresources.cumwad.name=Wad of Cum
-item.rancidresources.cumwad.desc=A gooey wad of semen.
-item.rancidresources.blooddrop.name=Drop of Blood
-item.rancidresources.blooddrop.desc=Drop of liquid body fluid.
+item.rancidresources.shit.name=Piece of Shit
+item.rancidresources.shit.desc=A stinking piece of rectal waste
+item.rancidresources.cum.name=Wad of Cum
+item.rancidresources.cum.desc=A gooey wad of semen.
+item.rancidresources.blood.name=Drop of Blood
+item.rancidresources.blood.desc=Drop of liquid body fluid.
 
 
 

@@ -1,5 +1,7 @@
 package luke.rancidresources.block;
 
+import luke.rancidresources.EntityShitFX;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.sound.SoundCategory;
@@ -17,8 +19,10 @@ public class BlockShit extends Block {
 	}
 
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		if (rand.nextInt(2) == 0) {
-			world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (double)x + 0.5, (double)y + 0.5, (double)z + 0.5, "rancidresources.poop1", 1.0F, world.rand.nextFloat() * 0.4F + 0.8F);
-			world.spawnParticle("shitpoof", (float)x + rand.nextFloat(), (float)y + rand.nextFloat(), (float)z + rand.nextFloat(), 0.0, 5.0, 0.0);}
+		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
+		if (rand.nextInt(6) == 0) {
+			mc.effectRenderer.addEffect(new EntityShitFX(world, x + rand.nextFloat(), (double) y + rand.nextFloat(), z + rand.nextFloat(), 0.0, 0.0, 0.0));
+		}
 	}
+
 }

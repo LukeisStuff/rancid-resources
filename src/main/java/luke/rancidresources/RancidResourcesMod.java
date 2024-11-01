@@ -10,8 +10,9 @@ import net.minecraft.core.item.ItemStack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.helper.EntityHelper;
-import turniplabs.halplibe.helper.ParticleHelper;
+import turniplabs.halplibe.helper.SoundHelper;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderShaped;
+import turniplabs.halplibe.util.ClientStartEntrypoint;
 import turniplabs.halplibe.util.ConfigHandler;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
@@ -19,7 +20,7 @@ import turniplabs.halplibe.util.RecipeEntrypoint;
 import java.util.Properties;
 
 
-public class RancidResources implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
+public class RancidResourcesMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint, ClientStartEntrypoint {
 	public static final String MOD_ID = "rancidresources";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static ConfigHandler config;
@@ -32,21 +33,22 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 	}
     @Override
     public void onInitialize() {
-        LOGGER.info("Rancid Resources initialized.");
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "poop.ogg");
+		EntityHelper.createEntity(EntityShit.class, 2200, "flungShit", () -> new SnowballRenderer(RancidItems.shit));
+
+		LOGGER.info("Rancid Resources initialized.");
     }
 
-		@Override
+	@Override
 	public void beforeGameStart() {
 		new RancidBlocks().initializeBlocks();
-		new RancidItems().initializeItems();
-
-		EntityHelper.Client.assignEntityRenderer(EntityShit.class, new SnowballRenderer(RancidItems.shit.getIconIndex(new ItemStack(RancidItems.shit))));
-
-		ParticleHelper.createParticle(EntityShitFX.class, "shitpoof");
+		new RancidBlocks().initializeBlockDetails();
+		new RancidItems().initilizeItems();
 	}
 
 	@Override
 	public void afterGameStart() {
+		new RancidBlocks().initializeBlockDetails();
 	}
 
 	@Override
@@ -61,6 +63,14 @@ public class RancidResources implements ModInitializer, GameStartEntrypoint, Rec
 	@Override
 	public void initNamespaces() {
 
+	}
+
+	@Override
+	public void beforeClientStart() {
+	}
+
+	@Override
+	public void afterClientStart() {
 	}
 
 }

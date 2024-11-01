@@ -2,21 +2,35 @@ package luke.rancidresources.item;
 
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemFood;
-import turniplabs.halplibe.helper.ItemHelper;
+import turniplabs.halplibe.helper.ItemBuilder;
 
-import static luke.rancidresources.RancidResources.MOD_ID;
+import static luke.rancidresources.RancidResourcesMod.MOD_ID;
 
 public class RancidItems {
 
-	private static int itemID = 17750;
+	public static int itemID = 17750;
 
-	public static final Item shit = ItemHelper.createItem(MOD_ID, new ItemShit("shitpiece", itemID++), "ShitItem.png");
+	public static Item shit;
 
-	public static final Item cum = ItemHelper.createItem(MOD_ID, new ItemFood("cumwad", itemID++, -1, false), "CumItem.png").setMaxStackSize(64);
+	public static Item cum;
 
-	public static final Item blood = ItemHelper.createItem(MOD_ID, new ItemBlood("blooddrop", itemID++), "Blood.png");
+	public static Item blood;
 
 
-	public void initializeItems() {
+	public void initilizeItems() {
+
+		shit = new ItemBuilder(MOD_ID)
+			.setIcon("rancidresources:item/shit")
+			.build(new ItemShit("shit", itemID++));
+
+		cum = new ItemBuilder(MOD_ID)
+			.setIcon("rancidresources:item/cum")
+			.build(new ItemFood("cum", itemID++, -1, 0, false, 64));
+
+		blood = new ItemBuilder(MOD_ID)
+			.setIcon("rancidresources:item/blood")
+			.build(new ItemBlood("blood", itemID++));
+
 	}
+
 }

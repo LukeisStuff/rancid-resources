@@ -2,6 +2,7 @@ package luke.rancidresources.mixin;
 
 import luke.rancidresources.block.RancidBlocks;
 import luke.rancidresources.item.RancidItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.entity.EntityLiving;
 import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.item.ItemStack;
@@ -21,9 +22,9 @@ import java.util.Random;
 @Mixin(value = EntityPlayer.class, remap = false)
 public abstract class EntityPlayerMixin extends EntityLiving {
 	@Unique
-	private boolean playerSneaked = false;
+	public boolean playerSneaked = false;
 	@Unique
-	private boolean playerSwinged = false;
+	public boolean playerSwinged = false;
 
 	@Shadow
 	public abstract void remove();
@@ -41,7 +42,7 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 		super(world);
 	}
 
-	@Inject(method = "tick", at = @At(value = "HEAD"), cancellable = true)
+	@Inject(method = "tick", at = @At(value = "HEAD"))
 	public void tick(CallbackInfo ci) {
 		if(this.getHealth() == 4)
 		{
@@ -78,27 +79,26 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 		if(this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && this.isSneaking() && !playerSneaked)
 		{
 			int random = new Random().nextInt(30);
-			if(random == 0) {
-				this.dropPlayerItem(new ItemStack(RancidItems.shit, 1));
+			if (random == 0) {
+				world.dropItem((int) this.x - 1, (int) this.y - 1, (int) this.z - 1, new ItemStack(RancidItems.shit, 1));
 			}
-			if(random == 1) {
-				this.dropPlayerItem(new ItemStack(RancidItems.shit, 2));
+			if (random == 1) {
+				world.dropItem((int) this.x - 1, (int) this.y - 1, (int) this.z - 1, new ItemStack(RancidItems.shit, 2));
 			}
-			if(random == 2) {
-				this.dropPlayerItem(new ItemStack(RancidItems.shit, 3));
+			if (random == 2) {
+				world.dropItem((int) this.x - 1, (int) this.y - 1, (int) this.z - 1, new ItemStack(RancidItems.shit, 3));
 			}
-			if(random == 3) {
-				this.dropPlayerItem(new ItemStack(RancidBlocks.shit, 1));
+			if (random == 3) {
+				world.dropItem((int) this.x - 1, (int) this.y - 1, (int) this.z - 1, new ItemStack(RancidBlocks.shit, 1));
 			}
 			playerSneaked = true;
 		}
-		if(!this.isSneaking()) {
+		if (!this.isSneaking()) {
 			playerSneaked = false;
 		}
-
-		if(this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && this.getHealth() == 20 && !playerSwinged && this.getCurrentEquippedItem() == null)
-			{
-			int random = new Random().nextInt(10);
+		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
+			if (this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && this.getHealth() >= 20 && !playerSwinged && this.getCurrentEquippedItem() == null && mc.objectMouseOver != null) {
+			int random = new Random().nextInt(20);
 			if(random == 0) {
 				this.dropPlayerItem(new ItemStack(RancidItems.cum, 1));
 			}
