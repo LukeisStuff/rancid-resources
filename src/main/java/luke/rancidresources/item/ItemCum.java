@@ -32,23 +32,23 @@ public class ItemCum extends ItemFood {
 				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.1F, 1.0f);
 			}
 			if (random == 1) {
-				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 3));
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 2));
 				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.2F, 1.0f);
 			}
 			if (random == 2) {
-				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 5));
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 3));
 				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.3F, 1.0f);
 			}
 			if (random == 3) {
-				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 7));
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 4));
 				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.4F, 1.0f);
 			}
 			if (random == 4) {
-				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 9));
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 5));
 				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.5F, 1.0f);
 			}
 			if (random == 5) {
-				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 11));
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 6));
 				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.6F, 1.0f);
 			}
 		}
