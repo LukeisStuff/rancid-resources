@@ -55,7 +55,7 @@ public class RancidBlocks {
 		.build(new Block("cum", blockID++, Material.dirt));
 
 	pork = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+		.setBlockSound(new BlockSound("", "", 0.1f, 1.0f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setBlockModel(BlockModelPork::new)

@@ -5,6 +5,7 @@ import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.world.World;
 
 import java.util.Random;
@@ -18,6 +19,14 @@ public class BlockPork extends Block {
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		return new ItemStack[]{new ItemStack(this, 1, meta)};
+	}
+
+	public void onBlockAdded(World world, int x, int y, int z) {
+		world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, x, y, z, "rancidresources.flesh", 1.0F, 0.8f);
+	}
+
+	public void onBlockRemoved(World world, int x, int y, int z, int data) {
+		world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, x, y, z, "rancidresources.flesh", 1.0F, 0.8f);
 	}
 
 	public static int getMetadataForRot(int i) {

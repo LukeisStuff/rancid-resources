@@ -39,7 +39,9 @@ public class RancidResourcesMod implements ModInitializer, GameStartEntrypoint, 
 
 		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "puke1.ogg"); SoundHelper.addSound(RancidResourcesMod.MOD_ID, "puke2.ogg"); SoundHelper.addSound(RancidResourcesMod.MOD_ID, "puke3.ogg");
 
-		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "vomit.ogg");
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "vomit1.ogg"); SoundHelper.addSound(RancidResourcesMod.MOD_ID, "vomit2.ogg");
+
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "flesh1.ogg"); SoundHelper.addSound(RancidResourcesMod.MOD_ID, "flesh2.ogg");
 
 		EntityHelper.createEntity(EntityShit.class, 2200, "flungShit", () -> new SnowballRenderer(RancidItems.shit));
 
