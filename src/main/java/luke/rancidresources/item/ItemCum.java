@@ -1,9 +1,13 @@
 package luke.rancidresources.item;
 
+import luke.rancidresources.block.RancidBlocks;
 import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.world.World;
+
+import java.util.Random;
 
 public class ItemCum extends ItemFood {
 	public final int healAmount;
@@ -19,10 +23,33 @@ public class ItemCum extends ItemFood {
 
 	@Override
 	public ItemStack onUseItem(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (entityplayer.getHealth() < entityplayer.getMaxHealth() && entityplayer.getHealth() + entityplayer.getTotalHealingRemaining() < entityplayer.getMaxHealth() && itemstack.consumeItem(entityplayer)) {
+		if (itemstack.consumeItem(entityplayer)) {
 			entityplayer.eatFood(this);
-			if (itemRand.nextInt(6) == 0) {
-				entityplayer.dropPlayerItem(new ItemStack(RancidItems.puke, 1));
+			entityplayer.playHurtSound();
+			int random = new Random().nextInt(10);
+			if (random == 0) {
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 1));
+				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.1F, 1.0f);
+			}
+			if (random == 1) {
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 3));
+				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.2F, 1.0f);
+			}
+			if (random == 2) {
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 5));
+				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.3F, 1.0f);
+			}
+			if (random == 3) {
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 7));
+				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.4F, 1.0f);
+			}
+			if (random == 4) {
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 9));
+				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.5F, 1.0f);
+			}
+			if (random == 5) {
+				entityplayer.dropPlayerItem(new ItemStack(RancidBlocks.puke, 11));
+				world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, entityplayer.x, entityplayer.y, entityplayer.z, "rancidresources.vomit", 0.6F, 1.0f);
 			}
 		}
 		return itemstack;

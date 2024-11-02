@@ -1,8 +1,12 @@
 package luke.rancidresources.block;
 
+import net.minecraft.client.render.block.model.BlockModelLayer;
+import net.minecraft.client.render.block.model.BlockModelStandard;
+import net.minecraft.client.render.stitcher.TextureRegistry;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.item.block.ItemBlockLayer;
 import net.minecraft.core.sound.BlockSound;
 import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.CreativeHelper;
@@ -19,6 +23,8 @@ public class RancidBlocks {
 
 	public static Block pork;
 
+	public static Block puke;
+
 	public void initializeBlockDetails() {
 		for (int color = 2; color < 5; color++) {
 			CreativeHelper.setParent(pork, color - 1, pork, 0);
@@ -29,10 +35,14 @@ public class RancidBlocks {
 
 
 	shit = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 0.0f, 0.5f))
+		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 0.0f, 0.0f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("rancidresources:block/shit")
+		.setBlockModel((block) -> {
+			TextureRegistry.getTexture(MOD_ID + ":block/fly");
+			return new BlockModelStandard<>(block);
+		})
 		.setTags(BlockTags.MINEABLE_BY_SHOVEL)
 		.build(new BlockShit("shit", blockID++, Material.dirt));
 
@@ -54,6 +64,16 @@ public class RancidBlocks {
 		.setTicking(true)
 		.setTags(BlockTags.MINEABLE_BY_AXE)
 		.build(new BlockPork("pork", blockID++, Material.dirt));
+
+	puke = new BlockBuilder(MOD_ID)
+		.setBlockSound(new BlockSound("", "", 0.1f, 1.0f))
+		.setHardness(0.3f)
+		.setResistance(0.2f)
+		.setBlockModel(BlockModelLayer::new)
+		.setItemBlock(ItemBlockLayer::new)
+		.setTextures("rancidresources:block/puke")
+		.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_SHOVEL)
+		.build(new BlockPuke("puke", blockID++, Material.dirt).setFullBlockID(() -> puke.id));
 
 	}
 

@@ -1,7 +1,9 @@
 tile.rancidresources.shit.name=Shitty Block
 tile.rancidresources.shit.desc=A lumpy pile of human feces.
+
 tile.rancidresources.cum.name=Block o' Cum
 tile.rancidresources.cum.desc=An oozing collection of sperm.
+
 tile.rancidresources.pork.pork.name=Pork
 tile.rancidresources.pork.pork.desc=A solidified piece of a pig.
 tile.rancidresources.pork.rotting.name=Rotting Pork
@@ -11,11 +13,15 @@ tile.rancidresources.pork.moldy.desc=A piece of a pig gone foul.
 tile.rancidresources.pork.mold.name=Mold
 tile.rancidresources.pork.mold.desc=A moldy substance of pure rot.
 
+tile.rancidresources.puke.name=Puke
+tile.rancidresources.puke.desc=A flat layer of vile vomit.
 
 item.rancidresources.shit.name=Piece of Shit
 item.rancidresources.shit.desc=A stinking piece of rectal waste
+
 item.rancidresources.cum.name=Wad of Cum
 item.rancidresources.cum.desc=A gooey wad of semen.
+
 item.rancidresources.blood.name=Drop of Blood
 item.rancidresources.blood.desc=Drop of liquid body fluid.
 

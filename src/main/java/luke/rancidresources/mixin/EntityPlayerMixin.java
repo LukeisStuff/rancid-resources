@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.entity.EntityLiving;
 import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.player.gamemode.Gamemode;
 import net.minecraft.core.player.inventory.InventoryPlayer;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.world.World;
@@ -38,13 +39,16 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 	@Shadow
 	public abstract ItemStack getCurrentEquippedItem();
 
+	@Shadow
+	public Gamemode gamemode;
+
 	public EntityPlayerMixin(World world) {
 		super(world);
 	}
 
 	@Inject(method = "tick", at = @At(value = "HEAD"))
 	public void tick(CallbackInfo ci) {
-		if(this.getHealth() == 4)
+		if(this.getHealth() == 4 && this.gamemode == Gamemode.survival)
 		{
 			int random = new Random().nextInt(200);
 			if(random == 0) {
@@ -52,7 +56,7 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 			}
 		}
 
-		if(this.getHealth() == 3)
+		if(this.getHealth() == 3 && this.gamemode == Gamemode.survival)
 		{
 			int random = new Random().nextInt(150);
 			if(random == 0) {
@@ -60,7 +64,7 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 			}
 		}
 
-		if(this.getHealth() == 2)
+		if(this.getHealth() == 2 && this.gamemode == Gamemode.survival)
 		{
 			int random = new Random().nextInt(100);
 			if(random == 0) {
@@ -68,7 +72,7 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 			}
 		}
 
-		if(this.getHealth() == 1)
+		if(this.getHealth() == 1 && this.gamemode == Gamemode.survival)
 		{
 			int random = new Random().nextInt(50);
 			if(random == 0) {
@@ -76,7 +80,7 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 			}
 		}
 
-		if(this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && this.isSneaking() && !playerSneaked)
+		if(this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && this.isSneaking() && !playerSneaked && this.gamemode == Gamemode.survival)
 		{
 			int random = new Random().nextInt(30);
 			if (random == 0) {
@@ -97,7 +101,7 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 			playerSneaked = false;
 		}
 		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
-			if (this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && this.getHealth() >= 20 && !playerSwinged && this.getCurrentEquippedItem() == null && mc.objectMouseOver != null) {
+			if (this.inventory.getTotalProtectionAmount(DamageType.COMBAT) == 0 && this.gamemode == Gamemode.survival && Mouse.getEventButton() == 0 && Mouse.getEventButtonState() && this.getHealth() >= 20 && !playerSwinged && this.getCurrentEquippedItem() == null && mc.objectMouseOver != null) {
 			int random = new Random().nextInt(20);
 			if(random == 0) {
 				this.dropPlayerItem(new ItemStack(RancidItems.cum, 1));

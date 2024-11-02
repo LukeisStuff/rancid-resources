@@ -7,11 +7,14 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLeavesBase;
 import net.minecraft.core.world.World;
 
+import static luke.rancidresources.RancidResourcesMod.MOD_ID;
+
 public class EntityShitFX
 	extends EntityLeafFX {
 	public EntityShitFX(World world, double x, double y, double z, double d3, double d4, double d5) {
 		super(world, x, y, z, d3, d4, d5);
-		this.particleTexture = TextureRegistry.getTexture("minecraft:block/block_coal");
+		this.particleTexture = TextureRegistry.getTexture("rancidresources:block/fly");
+		this.particleTexture = TextureRegistry.getTexture(MOD_ID + ":block/fly");
 		this.particleGravity = -0.0025f;
 		this.particleScale /= 2.0f;
 		this.particleMaxAge = (int)(16.0 / (Math.random() * 0.8 + 0.2)) + 4;
@@ -42,6 +45,7 @@ public class EntityShitFX
 			this.remove();
 		}
 		this.move((this.random.nextDouble() - 0.5) * 0.1, (this.random.nextDouble() + 0.1) * 0.1, (this.random.nextDouble() - 0.5) * 0.1);
+		this.particleTexture = TextureRegistry.getTexture(MOD_ID + ":block/fly");
 	}
 
 	public EntityShitFX func_4041_a(int i, int j, int k) {
@@ -53,6 +57,7 @@ public class EntityShitFX
 		this.particleRed *= (float)(l >> 16 & 0xFF) / 255.0f;
 		this.particleGreen *= (float)(l >> 8 & 0xFF) / 255.0f;
 		this.particleBlue *= (float)(l & 0xFF) / 255.0f;
+		this.particleTexture = TextureRegistry.getTexture(MOD_ID + ":block/fly");
 		return this;
 	}
 
