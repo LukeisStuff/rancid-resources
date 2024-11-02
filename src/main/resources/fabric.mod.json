@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "rancidresources",
-	"version": "1.0.0",
+	"version": "${version}",
 
 	"name": "Rancid Resources",
 	"description": "The most vile mod imaginable for BTA!",

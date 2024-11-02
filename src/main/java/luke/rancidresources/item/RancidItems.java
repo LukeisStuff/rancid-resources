@@ -1,7 +1,6 @@
 package luke.rancidresources.item;
 
 import net.minecraft.core.item.Item;
-import net.minecraft.core.item.ItemFood;
 import turniplabs.halplibe.helper.ItemBuilder;
 
 import static luke.rancidresources.RancidResourcesMod.MOD_ID;
@@ -25,7 +24,7 @@ public class RancidItems {
 
 		cum = new ItemBuilder(MOD_ID)
 			.setIcon("rancidresources:item/cum")
-			.build(new ItemFood("cum", itemID++, -1, 0, false, 64));
+			.build(new ItemCum("cum", itemID++, -1, 0, false, 64));
 
 		blood = new ItemBuilder(MOD_ID)
 			.setIcon("rancidresources:item/blood")

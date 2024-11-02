@@ -14,7 +14,7 @@ public class ItemShit extends Item {
 
 	public ItemStack onUseItem(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		itemstack.consumeItem(entityplayer);
-		world.playSoundAtEntity(entityplayer, entityplayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		world.playSoundAtEntity(entityplayer, entityplayer, "rancidresources.poop", 0.5F, 1.0F);
 		if (!world.isClientSide) {
 			world.entityJoinedWorld(new EntityShit(world, entityplayer));
 		}

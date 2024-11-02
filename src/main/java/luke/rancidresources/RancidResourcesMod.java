@@ -33,7 +33,10 @@ public class RancidResourcesMod implements ModInitializer, GameStartEntrypoint, 
 	}
     @Override
     public void onInitialize() {
-		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "poop.ogg");
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "poop1.ogg");
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "poop2.ogg");
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "fart1.ogg");
+		SoundHelper.addSound(RancidResourcesMod.MOD_ID, "fart2.ogg");
 		EntityHelper.createEntity(EntityShit.class, 2200, "flungShit", () -> new SnowballRenderer(RancidItems.shit));
 
 		LOGGER.info("Rancid Resources initialized.");

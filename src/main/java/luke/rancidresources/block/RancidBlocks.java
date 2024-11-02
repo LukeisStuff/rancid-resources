@@ -29,7 +29,7 @@ public class RancidBlocks {
 
 
 	shit = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.5f))
+		.setBlockSound(new BlockSound("step.gravel", "step.gravel", 0.0f, 0.5f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("rancidresources:block/shit")

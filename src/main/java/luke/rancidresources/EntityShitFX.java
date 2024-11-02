@@ -11,10 +11,10 @@ public class EntityShitFX
 	extends EntityLeafFX {
 	public EntityShitFX(World world, double x, double y, double z, double d3, double d4, double d5) {
 		super(world, x, y, z, d3, d4, d5);
-		this.particleTexture = TextureRegistry.getTexture("minecraft:block/crops_wheat_stage3");
+		this.particleTexture = TextureRegistry.getTexture("minecraft:block/block_coal");
 		this.particleGravity = -0.0025f;
 		this.particleScale /= 2.0f;
-		this.particleMaxAge = (int)((float)this.particleMaxAge * 2.0f);
+		this.particleMaxAge = (int)(16.0 / (Math.random() * 0.8 + 0.2)) + 4;
 		this.yd = 0.0;
 		this.xd = 0.0;
 		this.zd = 0.0;
@@ -31,6 +31,7 @@ public class EntityShitFX
 		this.xo = this.x;
 		this.yo = this.y;
 		this.zo = this.z;
+
 		if (this.particleAge++ >= this.particleMaxAge) {
 			this.remove();
 		}
@@ -40,7 +41,7 @@ public class EntityShitFX
 			this.zd *= 0.0;
 			this.remove();
 		}
-		this.move(this.xd, this.yd, this.zd);
+		this.move((this.random.nextDouble() - 0.5) * 0.1, (this.random.nextDouble() + 0.1) * 0.1, (this.random.nextDouble() - 0.5) * 0.1);
 	}
 
 	public EntityShitFX func_4041_a(int i, int j, int k) {
